@@ -5,9 +5,50 @@ import Image from 'next/image'
 
 const projects = [
   {
-    name: 'Project 1',
-    description: 'A brief description of the project',
-    image: '/path/to/project1-image.jpg',
+    id: 1,
+    name: 'Expensify',
+    description: 'Simplify financial tracking with an intuitive expense management platform that empowers businesses to control and optimize their spending.',
+    image: '/expensify.png',
+    technologies: ['Node.js', 'Express', 'PostgreSQL'],
+    link: '#'
+  },
+  {
+    id: 2,
+    name: 'IcarePro',
+    description: 'Revolutionize healthcare administration with a comprehensive system that streamlines patient care, billing, and medical record management.',
+    image: '/IcarePro.png',
+    technologies: ['Node.js', 'Express', 'PostgreSQL'],
+    link: '#'
+  },
+  {
+    id: 3,
+    name: 'ShopStock',
+    description: 'Optimize retail operations with an intelligent inventory management solution that tracks stock levels, sales, and provides real-time insights.',
+    image: '/ShopStock.png',
+    technologies: ['React', 'Next.js', 'Tailwind'],
+    link: '#'
+  },
+  {
+    id: 4,
+    name: '',
+    description: 'An innovative project solving unique challenges with cutting-edge technology.',
+    image: '/ddsd.png',
+    technologies: ['React', 'Next.js', 'Tailwind'],
+    link: '#'
+  },
+  {
+    id: 5,
+    name: 'Barangay Management System',
+    description: 'Empower local communities with a digital platform that centralizes health records, resident information, and administrative processes.',
+    image: '/bhs.png',
+    technologies: ['React', 'Next.js', 'Tailwind'],
+    link: '#'
+  },
+  {
+    id: 6,
+    name: 'Live Auction',
+    description: 'Transform the auction experience with a dynamic online platform that connects auctioneers and buyers in real-time.',
+    image: '/liveauction.png',
     technologies: ['React', 'Next.js', 'Tailwind'],
     link: '#'
   },
@@ -37,7 +78,7 @@ export function Projects() {
               alt={project.name} 
               width={400} 
               height={250} 
-              className="w-full object-cover"
+              className="w-full h-[250px] object-cover"
             />
             <div className="p-4">
               <h3 className="text-xl font-semibold mb-2">{project.name}</h3>

@@ -6,7 +6,7 @@ export function About() {
   return (
     <motion.section 
       id="about"
-      className="container mx-auto px-4 py-16 bg-gradient-to-br from-blue-50 to-indigo-100"
+      className="container mx-auto px-4 py-16 bg-gradient-to-br from-blue-50  to-indigo-100"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ 

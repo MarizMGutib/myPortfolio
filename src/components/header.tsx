@@ -4,12 +4,18 @@ import { motion } from 'framer-motion'
 import { MoonIcon, SunIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 
 export function Header() {
+  const [mounted, setMounted] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
+
+  // Ensure component is mounted before rendering theme-dependent content
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const navItems = [
     { name: 'Home', href: '#home', section: 'home' },
@@ -20,8 +26,11 @@ export function Header() {
   ]
 
   const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark')
+    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
   }
+
+  // Critical change: Render null until mounted
+  if (!mounted) return null
 
   return (
     <motion.header 

@@ -1,27 +1,20 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 export function Contact() {
-  const [isClient, setIsClient] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   })
 
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Implement form submission logic
     console.log(formData)
   }
-
-  if (!isClient) return null
 
   return (
     <motion.section 

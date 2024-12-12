@@ -6,13 +6,13 @@ import Image from 'next/image'
 export function Hero() {
   return (
     <motion.section 
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-screen flex flex-col items-center justify-center overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
       <Image
-        src="/placeholder.svg?height=1080&width=1920"
+        src="/placeholder.svg"
         alt="Hero background"
         fill
         priority
@@ -24,6 +24,30 @@ export function Hero() {
         className="absolute inset-0 z-0"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 to-purple-900/60 z-10" />
+      
+      <motion.div
+        className="mb-8 z-15 w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg"
+        initial={{ scale: 0.7, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ 
+          delay: 0.6, 
+          type: "spring", 
+          stiffness: 100 
+        }}
+      >
+        <Image
+          src="/mypic.png"
+          alt="Mariz Gutib"
+          width={192}
+          height={192}
+          priority
+          className="object-cover w-full h-full"
+          style={{
+            filter: 'brightness(1) contrast(1.3)',
+          }}
+        />
+      </motion.div>
+      
       <motion.div 
         className="relative z-20 text-center text-white px-4"
         initial={{ y: 20, opacity: 0 }}
