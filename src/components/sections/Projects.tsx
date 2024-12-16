@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useMemo } from 'react'
 
 const projects = [
   {
@@ -30,9 +31,9 @@ const projects = [
   },
   {
     id: 4,
-    name: '',
-    description: 'An innovative project solving unique challenges with cutting-edge technology.',
-    image: '/ddsd.png',
+    name: 'Live Auction',
+    description: 'Transform the auction experience with a dynamic online platform that connects auctioneers and buyers in real-time.',
+    image: '/liveauction.png',
     technologies: ['React', 'Next.js', 'Tailwind'],
     link: '#'
   },
@@ -56,6 +57,8 @@ const projects = [
 ]
 
 export function Projects() {
+  const memoizedProjects = useMemo(() => projects, [])
+
   return (
     <motion.section 
       id="projects"
@@ -66,16 +69,16 @@ export function Projects() {
     >
       <h2 className="text-3xl font-bold mb-8 text-center">Projects</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
+        {memoizedProjects.map((project) => (
           <motion.div
-            key={project.name}
+            key={project.id}
             className="border rounded-lg overflow-hidden shadow-lg"
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
             <Image 
               src={project.image} 
-              alt={project.name} 
+              alt={project.name || 'Project'} 
               width={400} 
               height={250} 
               className="w-full h-[250px] object-cover"
